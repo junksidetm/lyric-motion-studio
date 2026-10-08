@@ -1,0 +1,19 @@
+{
+  "name": "lyric-motion-video",
+  "version": "1.0.0",
+  "description": "Remotion kinetic motion graphics engine for Lyric Motion Studio",
+  "scripts": {
+    "build": "remotion render src/index.ts LyricVideo out/final.mp4",
+    "preview": "remotion preview src/index.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.200",
+    "@remotion/cli": "^4.0.200"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "typescript": "^5.4.5"
+  }
+}

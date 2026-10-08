@@ -1,0 +1,41 @@
+[
+  {
+    "sequenceId": 1,
+    "line": 1,
+    "start": 0.0,
+    "end": 3.2,
+    "lyrics": "जो चुभती है तुझको",
+    "heroWord": "चुभती",
+    "visualConcept": "Sharp piercing typography with kinetic tension",
+    "semanticMetaphor": "Needles & thorns piercing the screen baseline",
+    "animationType": "kinetic-punch",
+    "backgroundTheme": "night",
+    "intensity": 8
+  },
+  {
+    "sequenceId": 2,
+    "line": 2,
+    "start": 3.2,
+    "end": 6.5,
+    "lyrics": "है जैसे मेरा काम और ये मूँछ",
+    "heroWord": "मूँछ",
+    "visualConcept": "Devanagari headline morphs into stylized moustache",
+    "semanticMetaphor": "Continuous red pen stroke curls outward",
+    "animationType": "line-morph",
+    "backgroundTheme": "paper",
+    "intensity": 9
+  },
+  {
+    "sequenceId": 3,
+    "line": 3,
+    "start": 6.5,
+    "end": 10.0,
+    "lyrics": "सवाल पूछ मुझसे, मैं दूंगा जवाब",
+    "heroWord": "सवाल",
+    "visualConcept": "Interrogation Case File stamped onto frame",
+    "semanticMetaphor": "Evidence file stamps and court documents",
+    "animationType": "camera-push",
+    "backgroundTheme": "accent",
+    "intensity": 7
+  }
+]

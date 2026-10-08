@@ -1,0 +1,20 @@
+{
+  "name": "lyric-motion-studio",
+  "version": "0.1.0",
+  "description": "Remote-first AI Lyric Video Generation platform powered by Remotion, torchaudio MMS_FA, and Google Gemini API",
+  "scripts": {
+    "align": "python scripts/align_mms.py",
+    "screenplay": "node scripts/generate_screenplay.mjs",
+    "render": "cd video && npx remotion render src/index.ts LyricVideo ../out/final.mp4"
+  },
+  "keywords": [
+    "remotion",
+    "gemini",
+    "lyric-video",
+    "motion-graphics",
+    "github-actions",
+    "forced-alignment"
+  ],
+  "author": "junksidetm",
+  "license": "MIT"
+}

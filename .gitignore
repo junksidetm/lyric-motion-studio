@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+out/
+dist/
+*.pyc
+__pycache__/
+.env
+.env.local
+video/public/*.mp3
+video/src/data/word-timestamps.json
+video/src/data/phrases.json

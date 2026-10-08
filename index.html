@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lyric Motion Studio — Kinetic Lyric Videos with Remotion & Gemini</title>
+	<link rel="stylesheet" href="styles/globals.css">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+</head>
+<body>
+	<div class="container">
+		<!-- Header -->
+		<header class="vd-head">
+			<div class="vd-badge">
+				<span class="vd-badge-dot"></span>
+				REMOTE CI/CD · REMOTION × GEMINI 2.5
+			</div>
+			<h1 class="vd-title">Lyric Motion Studio</h1>
+			<p class="vd-subtitle">
+				Zero local processing. Transform song audio and raw lyrics into high-end, art-directed 9:16 vertical motion videos rendered entirely in the cloud on GitHub Actions.
+			</p>
+		</header>
+
+		<!-- Main Layout Grid -->
+		<main class="vd-grid">
+			<!-- Generator Form Panel -->
+			<section class="vd-card">
+				<h2 class="vd-card-title">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+					Song & Screenplay Generator
+				</h2>
+				<p class="vd-card-subtitle">Provide your track and canonical lyrics to begin automated remote generation.</p>
+
+				<!-- Audio Input -->
+				<div class="vd-field">
+					<label class="vd-label" for="audioUrl">Audio Source (YouTube / YT Music URL)</label>
+					<input 
+						type="url" 
+						id="audioUrl" 
+						class="vd-input" 
+						placeholder="https://www.youtube.com/watch?v=..." 
+						autocomplete="off"
+					/>
+				</div>
+
+				<!-- Lyrics Input -->
+				<div class="vd-field">
+					<label class="vd-label" for="lyricsText">Canonical Lyrics (Source of Truth for Words)</label>
+					<textarea 
+						id="lyricsText" 
+						class="vd-textarea" 
+						placeholder="Paste your lyrics here (one line per bar).&#10;Devanagari, Latin, and multilingual code-switching are fully supported without breaking ligatures or matras.&#10;&#10;Example:&#10;जो चुभती है तुझको, है जैसे मेरा काम और ये मूँछ..."
+					></textarea>
+					<div class="vd-counter">
+						<span id="counterStats">0 lines · 0 words · 0 aksharas</span>
+					</div>
+				</div>
+
+				<!-- Style Presets -->
+				<div class="vd-field">
+					<label class="vd-label">Art Direction & Visual World</label>
+					<div class="vd-chip-grid" id="styleChips">
+						<div class="vd-chip active" data-style="case-file">
+							<div class="vd-chip-title">Case File</div>
+							<div class="vd-chip-desc">Paper & Night worlds with continuous red signature line.</div>
+						</div>
+						<div class="vd-chip" data-style="kinetic-dark">
+							<div class="vd-chip-title">Kinetic Dark</div>
+							<div class="vd-chip-desc">High-contrast monochrome typography with heavy inertia.</div>
+						</div>
+						<div class="vd-chip" data-style="cyber-beat">
+							<div class="vd-chip-title">Cyber Beat</div>
+							<div class="vd-chip-desc">Rhythm-reactive wireframes, glitch hits, and chromatic accents.</div>
+						</div>
+						<div class="vd-chip" data-style="minimal-mono">
+							<div class="vd-chip-title">Minimalist</div>
+							<div class="vd-chip-desc">Asymmetric Swiss editorial grid with purposeful negative space.</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Action Controls -->
+				<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+					<button type="button" class="vd-button" id="btnGenerate">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+						Dispatch Render on GitHub Actions
+					</button>
+					<button type="button" class="vd-button vd-button-secondary" id="btnFillDemo">
+						Load Demo Track (PYAAR? - Naam Sujal)
+					</button>
+				</div>
+			</section>
+
+			<!-- Live Preview & Pipeline Status -->
+			<aside class="vd-card vd-preview-pane">
+				<h2 class="vd-card-title">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M12 18h.01"/></svg>
+					Output Preview Mockup
+				</h2>
+
+				<!-- 9:16 Vertical Mobile Screen -->
+				<div class="vd-mobile-frame">
+					<div class="vd-mobile-mockup-inner">
+						<div class="vd-mockup-red-line"></div>
+						<div class="vd-mockup-word" id="previewWord">मूँछ</div>
+						<div class="vd-mockup-subtitle" id="previewSubtitle">1080 × 1920 · 30 FPS</div>
+					</div>
+				</div>
+
+				<!-- Remote Architecture Pipeline Checklist -->
+				<div class="vd-status-list">
+					<div class="vd-status-step">
+						<span class="vd-step-num">1</span>
+						<span class="vd-step-title">Audio Download & Filter</span>
+						<span class="vd-step-tag">yt-dlp</span>
+					</div>
+					<div class="vd-status-step">
+						<span class="vd-step-num">2</span>
+						<span class="vd-step-title">Multilingual Forced Alignment</span>
+						<span class="vd-step-tag">MMS_FA</span>
+					</div>
+					<div class="vd-status-step">
+						<span class="vd-step-num">3</span>
+						<span class="vd-step-title">AI Screenplay Generation</span>
+						<span class="vd-step-tag">Gemini 2.5</span>
+					</div>
+					<div class="vd-status-step">
+						<span class="vd-step-num">4</span>
+						<span class="vd-step-title">Motion Engine Rendering</span>
+						<span class="vd-step-tag">Remotion</span>
+					</div>
+				</div>
+
+				<!-- Action Links -->
+				<div style="width: 100%; display: flex; gap: 10px; margin-top: 10px;">
+					<a href="https://github.com/junksidetm/lyric-motion-studio/actions" target="_blank" rel="noopener" class="vd-button vd-button-secondary" style="font-size: 0.85rem; padding: 12px;">
+						View CI/CD Queue ↗
+					</a>
+					<a href="https://github.com/junksidetm/lyric-motion-studio/releases" target="_blank" rel="noopener" class="vd-button vd-button-secondary" style="font-size: 0.85rem; padding: 12px;">
+						Releases ↗
+					</a>
+				</div>
+			</aside>
+		</main>
+
+		<!-- Footer -->
+		<footer class="vd-footer">
+			<p>
+				Lyric Motion Studio · Powered by <a href="https://www.remotion.dev/" target="_blank" rel="noopener">Remotion</a> & <a href="https://aistudio.google.com/" target="_blank" rel="noopener">Google Gemini API</a>.
+			</p>
+			<p>
+				Architected for zero local machine overhead. Everything runs seamlessly in cloud CI/CD.
+			</p>
+		</footer>
+	</div>
+
+	<script src="src/app.js"></script>
+</body>
+</html>

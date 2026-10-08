@@ -1,0 +1,147 @@
+name: Render Kinetic Lyric Video
+
+on:
+  issues:
+    types: [opened, edited]
+  workflow_dispatch:
+    inputs:
+      audio_url:
+        description: 'Audio URL (YouTube / YT Music)'
+        required: true
+        default: 'https://www.youtube.com/watch?v=wXm7-e5U38c'
+      lyrics:
+        description: 'Canonical raw lyrics'
+        required: true
+      style:
+        description: 'Visual Style Preset'
+        required: false
+        default: 'case-file'
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  render:
+    # Only run if manual workflow_dispatch OR issue has the 'lyric-job' label
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'lyric-job')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache-dependency-path: video/package.json
+
+      - name: Setup Python (v3.10)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install System Graphics & Audio Libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libraqm-dev libharfbuzz-dev
+
+      - name: Parse Inputs (Issue or Dispatch)
+        id: parse_inputs
+        run: |
+          node -e "
+            const fs = require('fs');
+            let audioUrl = '';
+            let style = 'case-file';
+            let lyrics = '';
+
+            if ('${{ github.event_name }}' === 'workflow_dispatch') {
+              audioUrl = \`${{ github.event.inputs.audio_url }}\`;
+              style = \`${{ github.event.inputs.style }}\` || 'case-file';
+              lyrics = \`${{ github.event.inputs.lyrics }}\`;
+            } else {
+              const body = \`${{ github.event.issue.body }}\`;
+              const audioMatch = body.match(/audio_url:\s*\"([^\"]+)\"/);
+              const styleMatch = body.match(/style:\s*\"([^\"]+)\"/);
+              const lyricsMatch = body.match(/### Canonical Lyrics\s*\`\`\`text\s*([\s\S]*?)\`\`\`/);
+
+              if (audioMatch) audioUrl = audioMatch[1];
+              if (styleMatch) style = styleMatch[1];
+              if (lyricsMatch) lyrics = lyricsMatch[1].trim();
+            }
+
+            console.log('Parsed Audio URL:', audioUrl);
+            console.log('Parsed Style:', style);
+
+            fs.writeFileSync('lyrics.txt', lyrics || 'No lyrics provided', 'utf8');
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, \`audio_url=\${audioUrl}\nstyle=\${style}\n\`);
+          "
+
+      - name: Step 1 - Fetch Audio via yt-dlp
+        run: |
+          pip install yt-dlp
+          mkdir -p video/public
+          yt-dlp -x --audio-format mp3 -o "video/public/song.mp3" "${{ steps.parse_inputs.outputs.audio_url }}"
+
+      - name: Step 2 - Forced Alignment (torchaudio MMS_FA)
+        run: |
+          pip install torch torchaudio uroman
+          mkdir -p video/src/data
+          python scripts/align_mms.py \
+            --audio video/public/song.mp3 \
+            --lyrics lyrics.txt \
+            --out-words video/src/data/word-timestamps.json \
+            --out-phrases video/src/data/phrases.json
+
+      - name: Step 3 - AI Visual Screenplay (Google Gemini)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PHRASES_PATH: video/src/data/phrases.json
+          SCREENPLAY_PATH: video/src/data/defaultScreenplay.json
+          STYLE_PRESET: ${{ steps.parse_inputs.outputs.style }}
+        run: |
+          node scripts/generate_screenplay.mjs
+
+      - name: Step 4 - Render Remotion Kinetic Video
+        run: |
+          cd video
+          npm ci
+          mkdir -p ../out
+          npx remotion render src/index.ts LyricVideo ../out/final.mp4 --concurrency=2
+
+      - name: Step 5 - Publish Output to GitHub Releases
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: render-${{ github.run_id }}
+          name: "Lyric Video Render #${{ github.run_id }}"
+          files: out/final.mp4
+          body: |
+            ### 🎬 Lyric Motion Studio — Render Completed
+            - **Style:** ${{ steps.parse_inputs.outputs.style }}
+            - **Resolution:** 1080 × 1920 (9:16 Vertical)
+            - **Audio Source:** ${{ steps.parse_inputs.outputs.audio_url }}
+
+      - name: Step 6 - Post Download Link on Issue (If IssueOps)
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runId = context.runId;
+            const releaseTag = `render-${runId}`;
+            const downloadUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/releases/download/${releaseTag}/final.mp4`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### 🎉 Your Lyric Video is Ready!\n\nYour video has been rendered and published to GitHub Releases:\n\n- **Direct Download:** [final.mp4](${downloadUrl})\n- **Release Assets:** [View Release](https://github.com/${context.repo.owner}/${context.repo.repo}/releases/tag/${releaseTag})\n\n*(Rendered at 1080×1920, 30 FPS, optimized for Instagram Reels / YouTube Shorts).*`
+            });
+            github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });
