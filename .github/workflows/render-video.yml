@@ -2,7 +2,7 @@ name: Render Kinetic Lyric Video
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled]
   workflow_dispatch:
     inputs:
       audio_url:
@@ -23,8 +23,8 @@ permissions:
 
 jobs:
   render:
-    # Only run if manual workflow_dispatch OR issue has the 'lyric-job' label
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'lyric-job')
+    # Run on manual workflow_dispatch OR when issue is a Render Job
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.title, '[Render Job]') || contains(github.event.issue.body, 'AUTOMATED_LYRIC_JOB_PAYLOAD') || contains(github.event.issue.labels.*.name, 'lyric-job')
     runs-on: ubuntu-latest
     timeout-minutes: 40
 
@@ -107,9 +107,11 @@ jobs:
       - name: Step 4 - Render Remotion Kinetic Video
         run: |
           cd video
-          npm ci
+          npm install
           mkdir -p ../out
-          npx remotion render src/index.ts LyricVideo ../out/final.mp4 --concurrency=2
+          npx remotion render src/index.ts LyricVideo ../out/final.mp4 \
+            --props="{\"audioSrc\":\"song.mp3\",\"stylePreset\":\"${{ steps.parse_inputs.outputs.style }}\"}" \
+            --concurrency=2
 
       - name: Step 5 - Publish Output to GitHub Releases
         id: create_release

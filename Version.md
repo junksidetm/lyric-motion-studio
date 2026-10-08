@@ -60,3 +60,19 @@ Adheres strictly to the immutable append-only pattern.
   - Updated Web Studio UI:
     - Added `Apple Music UI` style preset chip in `index.html`.
     - Integrated responsive mockup preview subtitle updating in `src/app.js`.
+
+---
+
+### [v0.2.1] - 2026-10-08 21:40:00 IST
+- **Status:** Workflow Trigger Resilience & LRC Parsing Fix (100%)
+- **Author:** junksidetm <331540275+junksidetm@users.noreply.github.com>
+- **Commit Signing:** SSH key `id_ed25519_junksidetm`
+- **Fixes & Enhancements:**
+  - Created missing `lyric-job` label on GitHub repository.
+  - Hardened `.github/workflows/render-video.yml`:
+    - Broadened job execution condition to match `[Render Job]` title, `AUTOMATED_LYRIC_JOB_PAYLOAD`, or `lyric-job` label.
+    - Added `labeled` event trigger in addition to `opened` and `edited`.
+    - Switched `npm ci` to `npm install` in video build step to ensure seamless dependency resolution.
+    - Passed dynamic style preset props to Remotion render CLI.
+  - Enhanced `scripts/align_mms.py`:
+    - Added regex preprocessor to automatically clean standard LRC timestamp tags (e.g. `[00:13.58]`) from user-pasted lyrics.

@@ -28,6 +28,8 @@ def load_lyrics(lyrics_arg):
             raw = f.read()
     else:
         raw = lyrics_arg
+    # Automatically strip LRC timestamps like [00:13.58]
+    raw = re.sub(r"\[\d{1,2}:\d{2}(?:\.\d{1,3})?\]", "", raw)
     lines = [line.strip() for line in raw.splitlines() if line.strip()]
     return lines
 
