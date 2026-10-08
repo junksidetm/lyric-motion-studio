@@ -86,7 +86,8 @@ jobs:
 
       - name: Step 2 - Forced Alignment (torchaudio MMS_FA)
         run: |
-          pip install torch torchaudio uroman
+          pip install --no-cache-dir torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install uroman
           mkdir -p video/src/data
           python scripts/align_mms.py \
             --audio video/public/song.mp3 \

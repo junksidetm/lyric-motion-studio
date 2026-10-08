@@ -89,3 +89,15 @@ Adheres strictly to the immutable append-only pattern.
   - Added Node.js runtime flag (`--js-runtimes node`) to satisfy yt-dlp n-sig challenges.
   - Added automatic direct HTTP download support for `.mp3`, `.wav`, and Catbox/temporary file hosting links.
   - Added fallback ambient audio generation to ensure CI pipeline resilience under strict IP rate-limits.
+
+---
+
+### [v0.2.3] - 2026-10-08 22:13:00 IST
+- **Status:** Alignment Pipeline Optimization & TorchCodec Decoupling (100%)
+- **Author:** junksidetm <331540275+junksidetm@users.noreply.github.com>
+- **Commit Signing:** SSH key `id_ed25519_junksidetm`
+- **Fixes & Enhancements:**
+  - Resolved `ImportError: TorchCodec is required for load_with_torchcodec` on modern torchaudio by converting audio to 16kHz PCM WAV via FFmpeg before tensor loading.
+  - Implemented high-speed LRC parser in `scripts/align_mms.py`: lines with `[mm:ss.xx]` tags are parsed directly in <10ms with frame-accurate timing.
+  - Accelerated Step 2 in `.github/workflows/render-video.yml`: switched PyTorch download to `--index-url https://download.pytorch.org/whl/cpu` (reduces download from ~2 GB / 18 min to ~150 MB / 20 sec).
+  - Added `@remotion/bundler` to `video/package.json` for reliable headless rendering.
