@@ -101,3 +101,14 @@ Adheres strictly to the immutable append-only pattern.
   - Implemented high-speed LRC parser in `scripts/align_mms.py`: lines with `[mm:ss.xx]` tags are parsed directly in <10ms with frame-accurate timing.
   - Accelerated Step 2 in `.github/workflows/render-video.yml`: switched PyTorch download to `--index-url https://download.pytorch.org/whl/cpu` (reduces download from ~2 GB / 18 min to ~150 MB / 20 sec).
   - Added `@remotion/bundler` to `video/package.json` for reliable headless rendering.
+
+---
+
+### [v0.2.4] - 2026-10-08 22:17:00 IST
+- **Status:** Remotion TypeScript Engine Configuration (100%)
+- **Author:** junksidetm <331540275+junksidetm@users.noreply.github.com>
+- **Commit Signing:** SSH key `id_ed25519_junksidetm`
+- **Fixes & Enhancements:**
+  - Added `video/tsconfig.json` configuring ES2022 / React JSX compilation for Remotion bundler.
+  - Implemented dynamic `calculateMetadata` in `video/src/Root.tsx`: video length adapts to song duration in real-time.
+  - Verified and confirmed full pipeline stability through Step 1 (Audio Fetch), Step 2 (Forced Alignment), and Step 3 (Gemini 2.5 Screenplay).

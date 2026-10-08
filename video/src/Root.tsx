@@ -2,28 +2,39 @@ import React from 'react';
 import { Composition } from 'remotion';
 import { MainLyricComposition } from './Composition';
 import defaultScreenplay from './data/defaultScreenplay.json';
-import { VideoProps } from './types';
+import { VideoProps, ScreenplayScene } from './types';
 
 export const RemotionRoot: React.FC = () => {
-	const lastScene = defaultScreenplay[defaultScreenplay.length - 1];
-	const totalDurationSeconds = lastScene ? lastScene.end : 10;
 	const fps = 30;
-	const durationInFrames = Math.max(90, Math.round(totalDurationSeconds * fps));
 
 	return (
 		<>
 			<Composition
 				id="LyricVideo"
 				component={MainLyricComposition}
-				durationInFrames={durationInFrames}
+				durationInFrames={300}
 				fps={fps}
 				width={1080}
 				height={1920}
+				calculateMetadata={async ({ props }) => {
+					const scenes = (props.screenplay || defaultScreenplay) as ScreenplayScene[];
+					const lastScene = scenes[scenes.length - 1];
+					const totalDurationSeconds = lastScene ? lastScene.end : 10;
+					const durationInFrames = Math.max(90, Math.round(totalDurationSeconds * fps));
+					return {
+						durationInFrames,
+						props: {
+							...props,
+							screenplay: scenes,
+						},
+					};
+				}}
 				defaultProps={{
-					audioSrc: '',
+					audioSrc: 'song.mp3',
 					screenplay: defaultScreenplay as any,
 					words: [],
 					fps,
+					stylePreset: 'case-file',
 				}}
 			/>
 		</>
