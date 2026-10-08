@@ -143,6 +143,8 @@ def align():
     else:
         raw_lyrics = args.lyrics
 
+    raw_lyrics = raw_lyrics.replace("\\n", "\n")
+
     duration = get_audio_duration(args.audio)
     print(f"Total audio duration: {duration:.2f}s")
 

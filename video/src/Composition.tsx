@@ -1,5 +1,5 @@
 import React from 'react';
-import { Audio, Sequence, useVideoConfig } from 'remotion';
+import { Audio, Sequence, useVideoConfig, staticFile } from 'remotion';
 import { BackgroundLayer } from './backgrounds/BackgroundLayer';
 import { CameraRig } from './camera/CameraRig';
 import { KineticWord } from './typography/KineticWord';
@@ -20,6 +20,19 @@ export const MainLyricComposition: React.FC<VideoProps> = ({
 
 	const isAppleMusic = stylePreset === 'apple-music';
 
+	const resolvedAudioSrc = React.useMemo(() => {
+		if (!audioSrc) return null;
+		if (audioSrc.startsWith('http://') || audioSrc.startsWith('https://')) {
+			return audioSrc;
+		}
+		try {
+			return staticFile(audioSrc);
+		} catch (e) {
+			console.warn('Could not resolve staticFile for', audioSrc, e);
+			return null;
+		}
+	}, [audioSrc]);
+
 	return (
 		<div
 			style={{
@@ -33,7 +46,12 @@ export const MainLyricComposition: React.FC<VideoProps> = ({
 			}}
 		>
 			{/* Original Audio Track */}
-			{audioSrc && <Audio src={audioSrc} />}
+			{resolvedAudioSrc && (
+				<Audio
+					src={resolvedAudioSrc}
+					onError={(e) => console.warn('Audio playback error:', e)}
+				/>
+			)}
 
 			{/* Render Sequences based on Screenplay */}
 			{screenplay.map((scene: ScreenplayScene, index: number) => {

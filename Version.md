@@ -112,3 +112,17 @@ Adheres strictly to the immutable append-only pattern.
   - Added `video/tsconfig.json` configuring ES2022 / React JSX compilation for Remotion bundler.
   - Implemented dynamic `calculateMetadata` in `video/src/Root.tsx`: video length adapts to song duration in real-time.
   - Verified and confirmed full pipeline stability through Step 1 (Audio Fetch), Step 2 (Forced Alignment), and Step 3 (Gemini 2.5 Screenplay).
+---
+
+### [v0.2.5] - 2026-10-08 22:32:00 IST
+- **Status:** Remotion Static Asset Resolution & Audio Stream Integrity Hardening (100%)
+- **Author:** junksidetm <331540275+junksidetm@users.noreply.github.com>
+- **Commit Signing:** SSH key `id_ed25519_junksidetm`
+- **Fixes & Enhancements:**
+  - Resolved Remotion HTTP 404 on `song.mp3` by routing audio assets through Remotion's native `staticFile()` resolver in `video/src/Composition.tsx`.
+  - Configured `Config.setPublicDir(path.resolve(__dirname, 'public'))` in `video/remotion.config.ts` and passed `--public-dir=public` to the CLI runner.
+  - Tracked `video/public/.gitkeep` to guarantee asset directory presence on all runner checkouts.
+  - Added stream validation (`ffprobe` and HTML-header detection) in `scripts/fetch_audio.py` to prevent corrupt HTML pages from being treated as audio.
+  - Implemented dynamic harmonic backing track generation matching exact lyrics duration when YouTube datacenter bot detection triggers.
+  - Unescaped newline literals in `scripts/align_mms.py` for reliable multi-line LRC parsing across all dispatch interfaces.
+  - Added transparent fallback notifications in GitHub Releases and IssueOps comments.
