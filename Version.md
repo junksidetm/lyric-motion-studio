@@ -35,3 +35,28 @@ Adheres strictly to the immutable append-only pattern.
   - `torchaudio`: MMS_FA (Meta Massively Multilingual Speech)
   - `yt-dlp`: latest
   - `ffmpeg`: Ubuntu system utility
+
+---
+
+### [v0.2.0] - 2026-10-08 21:23:00 IST
+- **Status:** Apple Music Animation Style Integration (100%)
+- **Author:** junksidetm <331540275+junksidetm@users.noreply.github.com>
+- **Commit Signing:** SSH key `id_ed25519_junksidetm`
+- **Influence & Source:**
+  - Ingested and parsed `Apple music animation.pdf` (Aryan Uppal creator guide, Claude Opus 5.5 motion reference).
+  - Preserved influence assets in `influence/` directory:
+    - `Apple music animation.pdf`
+    - `Apple-music-animation-Extracted.txt` (full ASCII85 + FlateDecode extracted text)
+    - `Lyric-Video-Process-Guide.pdf`
+    - `Lyric-Video-Process-Guide-Extracted.txt`
+- **Features & Enhancements:**
+  - Added new motion engine components in Remotion:
+    - `video/src/components/AppleMusicPlayer.tsx`: Now-Playing interface featuring 3D floating album cover artwork, frosted glass scrubber, dynamic progress bar, volume controls, and horizontal sliding transitions.
+    - `video/src/components/AppleMusicLyrics.tsx`: Dynamic karaoke lyrics screen with active luminous text glow, smooth vertical scrolling, and translucent context lines.
+    - Updated `video/src/backgrounds/BackgroundLayer.tsx` with animated ambient colorful radial blur (`apple-music-blur`).
+    - Updated `video/src/Composition.tsx` to conditionally render Apple Music player or lyrics states based on screenplay tags.
+  - Enhanced `scripts/generate_screenplay.mjs`:
+    - Added dedicated prompt conditioning for `apple-music` style preset, mapping sequences to `apple-music-slide` and `apple-music-morph`.
+  - Updated Web Studio UI:
+    - Added `Apple Music UI` style preset chip in `index.html`.
+    - Integrated responsive mockup preview subtitle updating in `src/app.js`.

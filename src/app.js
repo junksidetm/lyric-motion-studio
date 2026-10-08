@@ -45,6 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			styleChips.forEach(c => c.classList.remove('active'));
 			chip.classList.add('active');
 			selectedStyle = chip.getAttribute('data-style');
+			const previewSubtitle = document.getElementById('previewSubtitle');
+			if (previewSubtitle) {
+				if (selectedStyle === 'apple-music') {
+					previewSubtitle.textContent = 'Apple Music Dynamic UI · 60 FPS';
+				} else if (selectedStyle === 'kinetic-dark') {
+					previewSubtitle.textContent = 'Kinetic Dark High-Contrast · 30 FPS';
+				} else if (selectedStyle === 'cyber-beat') {
+					previewSubtitle.textContent = 'Cyber Beat Audio-Reactive · 30 FPS';
+				} else {
+					previewSubtitle.textContent = '1080 × 1920 · 30 FPS Vertical';
+				}
+			}
 		});
 	});
 

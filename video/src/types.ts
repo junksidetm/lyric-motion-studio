@@ -21,9 +21,12 @@ export interface ScreenplayScene {
 	heroWord: string;
 	visualConcept: string;
 	semanticMetaphor: string;
-	animationType: 'kinetic-punch' | 'line-morph' | 'cascade-reveal' | 'shatter-reassemble' | 'camera-push';
-	backgroundTheme: 'paper' | 'night' | 'accent';
+	animationType: 'kinetic-punch' | 'line-morph' | 'cascade-reveal' | 'shatter-reassemble' | 'camera-push' | 'apple-music-slide' | 'apple-music-morph';
+	backgroundTheme: 'paper' | 'night' | 'accent' | 'apple-music-blur';
 	intensity: number;
+	albumArtUrl?: string;
+	songTitle?: string;
+	artistName?: string;
 }
 
 export interface VideoProps {
@@ -31,4 +34,7 @@ export interface VideoProps {
 	screenplay: ScreenplayScene[];
 	words: WordTimestamp[];
 	fps: number;
+	stylePreset?: string;
+	songTitle?: string;
+	artistName?: string;
 }

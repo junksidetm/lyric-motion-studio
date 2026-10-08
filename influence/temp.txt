@@ -1,0 +1,2 @@
+For our Rivo Phone App we use this shizuku "https://github.com/thedjchi/Shizuku"
+"D:\code\RivoPhoneApp\assests\icons\Phone-AppLogo-Green.svg" this svg is made with keeping the 66 px safe area in mind. When I click on Sync Calling Card button to sync Calling Card from google phone from shizuku (read version.md) the whole app get's struck and freeses and also become unresponsive. Fix that

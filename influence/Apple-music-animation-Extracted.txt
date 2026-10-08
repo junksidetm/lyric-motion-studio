@@ -1,0 +1,672 @@
+
+
+=== PAGE 1 ===
+
+FREE CREATOR GUIDE
+MAKE THIS APPLE MUSIC
+STYLE ANIMATION IN CLAUDE
+BY ARYAN UPPAL
+A step-by-step workflow for creating a polished Apple Music-style motion graphic using Claude Design, a
+reference video and supplied album artwork.
+CLAUDE DESIGN
+OPUS 5.5
+MEDIUM
+PROJECT
+1440 \001 1080  \002  4.22 seconds  \002  60 FPS preferred
+30 FPS fallback with smooth interpolation and motion blur.
+01  WAVY
+02  WINNING SPEECH
+03  REAL BADMAN
+01
+THE WORKFLOW
+OPEN CLAUDE DESIGN
+Open Claude Design first. Select Claude Opus 5.5 and set the thinking level to Medium.
+UPLOAD REFERENCES
+Upload the reference video first, then the three supplied artworks in this exact order: WAVY \001 WINNING
+SPEECH \001 REAL BADMAN.
+PASTE THE PROMPT
+Copy and paste the master prompt included in this PDF. It tells Claude exactly how to reproduce the
+reference's visual language.
+BUILD THE ANIMATION
+Let Claude build the Apple Music-style player, artwork slides, UI movement, perspective, typography and
+final lyric transformation.
+REFINE THE RESULT
+Use targeted follow-up instructions for timing, easing, spacing, perspective, motion blur or lyric reveal.
+Keep the reference as the visual authority.
+THE 5 RULES THAT KEEP THE RESULT CLEAN
+Reference video is the primary motion and timing reference.
+Supplied artwork is the source of truth.
+Keep the Apple Music UI, typography and perspective consistent.
+Use smooth easing and controlled motion blur.
+Avoid random effects, glitches and generic slideshow transitions.
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+1/7
+
+=== PAGE 2 ===
+
+THE ACTUAL BUILD
+STEP-BY-STEP
+FROM REFERENCES \003 FINAL ANIMATION
+BY ARYAN UPPAL
+01
+START THE PROJECT
+Open Claude Design and select Claude Opus 5.5 at Medium.
+Start with the goal of reproducing the supplied reference's
+Apple Music-style motion system using only the supplied assets.
+02
+FEED CLAUDE THE REFERENCES
+Upload the reference video, then WAVY, WINNING SPEECH and
+the NEW REAL BADMAN poster. Keep the order explicit. Do not
+let Claude replace, redraw or hallucinate artwork.
+03
+PASTE THE MASTER PROMPT
+Use the copy-paste prompt in this PDF. It locks resolution,
+duration, song order, lyric text, transition language, UI
+hierarchy, motion rules, perspective, blur and accuracy checks.
+04
+BUILD THE TIMELINE
+WAVY opens \001 slides to WINNING SPEECH \001 slides to REAL
+BADMAN \001 REAL BADMAN morphs into the lyric player. The full
+animation is 4.22 seconds.
+05
+REFINE, DON'T REDESIGN
+If something feels wrong, ask for targeted fixes: timing, easing,
+spacing, perspective, motion blur or lyric reveal. Keep the
+reference as the visual authority.
+06
+TIMELINE
+00:00 \001 00:18
+WAVY
+Opening player state; no
+over-animation.
+00:18 \001 01:13
+WAVY \003 WINNING SPEECH
+Physical horizontal slide; easing +
+controlled blur.
+01:13 \001 02:18
+WINNING SPEECH \003 REAL BADMAN
+Same transition language; establish
+the supplied poster.
+02:18 \001 04:22
+REAL BADMAN \003 LYRICS
+Smooth UI/shape morph; reveal the
+lyric progressively.
+07
+PROMPT BLUEPRINT
+ROLE: expert motion-graphics designer / creative
+developer.
+REFERENCE: study timing, UI, typography, sliding artwork,
+perspective, blur and easing.
+OUTPUT: 1440\0021080, 4.22s, 60 FPS preferred.
+ASSETS: only supplied images; never redraw or hallucinate
+artwork.
+SEQUENCE: WAVY \001 WINNING SPEECH \001 REAL BADMAN.
+FINAL STATE: exact lyric \003Baby They Know me, bade loki
+they owe me\004.
+PRIORITY: reference > supplied artwork > visual timing >
+creative interpretation.
+08
+FINAL CHECK
+1440\0021080
+4.22s
+WAVY first
+REAL BADMAN poster
+Apple Music UI
+Smooth slides
+Morph to lyrics
+Exact lyric
+Visual timing
+No random effects
+Created by Aryan Uppal \002 Claude Design + Opus 5.5 (Medium)
+Use the reference video and supplied artwork as your visual source material.
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+2/7
+
+=== PAGE 3 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+You are an expert motion graphics designer and creative developer specializing in premium
+music-video typography, Apple Music-style UI animation, kinetic typography, image transitions,
+ and highly polished editorial motion design.
+I need you to create a 4.22-second animation in 1440 \002 1080 resolution.
+IMPORTANT: I am providing a reference video. The reference video is the PRIMARY visual
+reference for the animation language. Study its timing, Apple Music player layout, typography
+treatment, sliding album artwork, volume sliders, progress bar, UI elements, perspective,
+motion blur, easing, text animation, and transitions.
+DO NOT loosely interpret the reference.
+I want the animation to closely reproduce the same visual language and motion behavior shown
+in the reference video, while replacing its content with the Karan Aujla artwork and song
+information I provide below.
+==================================================
+1. OUTPUT
+==================================================
+Resolution:
+1440 \002 1080
+Aspect ratio:
+4:3
+Total duration:
+4.22 seconds
+Frame rate:
+Prefer 60 FPS for extremely smooth motion if supported.
+If the implementation requires 30 FPS, maintain smooth interpolation and motion blur.
+The final result must feel:
+- extremely smooth
+- premium
+- cinematic
+- editorial
+- polished
+- Apple Music-inspired
+- precise
+- rhythmically synchronized to the visual timing of the reference
+- free from jerky movement
+- free from unnecessary effects
+Every movement should have intentional easing.
+==================================================
+2. PRIMARY REFERENCE
+==================================================
+The attached reference video is the most important visual reference.
+Use it to reproduce:
+- Apple Music player appearance
+- album-art placement
+- album-art sliding behavior
+- horizontal movement
+- UI hierarchy
+- progress bar
+- volume sliders
+- play/pause controls
+- typography
+- text placement
+- text scale
+- perspective
+- motion blur
+- depth
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+3/13
+
+=== PAGE 4 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+- image transitions
+- kinetic typography
+- timing
+- easing
+- visual rhythm
+- transitions between player states
+The goal is NOT to create a generic music-player animation.
+The goal is to recreate the same type of motion-design system shown in the reference video,
+but with my supplied Karan Aujla assets.
+Do not add random UI elements that are not present in the reference.
+Do not redesign the interface unnecessarily.
+==================================================
+3. ASSET RULE \003 VERY IMPORTANT
+==================================================
+ONLY use the supplied images.
+Do not generate replacement artwork.
+Do not hallucinate album covers.
+Do not redraw album covers.
+Do not recreate logos.
+Do not invent typography from the album artwork.
+Do not change the artwork design.
+Do not modify the artist's face or artwork.
+You may only:
+- scale
+- crop where necessary
+- position
+- rotate
+- perspective-transform
+- mask
+- blur
+- animate
+- transition
+- morph
+- use as a texture/layer
+The actual artwork itself must remain unchanged.
+==================================================
+4. SONG / ARTWORK ORDER
+==================================================
+The sequence is EXACTLY:
+1. WAVY
+Artist: Karan Aujla
+2. WINNING SPEECH
+Artist: Karan Aujla
+3. REAL BADMAN
+Artist: Karan Aujla
+The sequence MUST NOT change.
+==================================================
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+4/13
+
+=== PAGE 5 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+5. ARTWORK MAPPING
+==================================================
+IMAGE 1:
+WAVY album artwork.
+Song title:
+WAVY
+Artist:
+Karan Aujla
+This is the STARTING artwork.
+--------------------------------------------------
+IMAGE 2:
+WINNING SPEECH album artwork.
+Song title:
+WINNING SPEECH
+Artist:
+Karan Aujla
+This is the SECOND artwork.
+--------------------------------------------------
+IMAGE 3:
+REAL BADMAN album artwork.
+Song title:
+REAL BADMAN
+Artist:
+Karan Aujla
+CRITICAL:
+Use the NEWLY UPLOADED ACTUAL REAL BADMAN POSTER as the REAL BADMAN artwork.
+Ignore any previous REAL BADMAN artwork or earlier reference image.
+DO NOT use the AUJLA SZN illustrated car artwork as the Real Badman cover.
+The newly supplied REAL BADMAN image is the authoritative asset.
+Do not redesign it.
+Do not reinterpret it.
+Do not substitute another Karan Aujla artwork.
+Do not generate a new Real Badman poster.
+Use the supplied Real Badman poster exactly as provided.
+==================================================
+6. TIMELINE
+==================================================
+TOTAL DURATION:
+00:00:00:00 \001 00:00:04:22
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+5/13
+
+=== PAGE 6 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+--------------------------------------------------
+SECTION 1 \003 WAVY
+--------------------------------------------------
+TIME:
+00:00:00:00 \001 approximately 00:00:00:18
+Start with the Apple Music-style player.
+The first visible artwork is:
+WAVY
+Karan Aujla
+The player should already feel like it is moving naturally, rather than appearing abruptly.
+Use the same visual construction and perspective as the reference video.
+The WAVY artwork should be clearly readable.
+The Apple Music interface elements should be visible according to the reference.
+Do not overanimate this opening.
+--------------------------------------------------
+SECTION 2 \003 WAVY \001 WINNING SPEECH
+--------------------------------------------------
+TIME:
+approximately 00:00:00:18 \001 00:00:01:13
+Transition:
+WAVY
+\001
+WINNING SPEECH
+This transition is extremely important.
+Recreate the same type of sliding album/player transition shown in the reference.
+The transition should feel like the music player is physically sliding horizontally.
+Use:
+- smooth interpolation
+- controlled motion blur
+- subtle perspective
+- proper easing
+- no harsh linear movement
+The outgoing WAVY artwork should move naturally out of frame while WINNING SPEECH enters.
+The UI should remain coherent during the transition.
+Do not simply crossfade the two album covers.
+It MUST feel like a physical Apple Music player sliding between songs.
+--------------------------------------------------
+SECTION 3 \003 WINNING SPEECH \001 REAL BADMAN
+--------------------------------------------------
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+6/13
+
+=== PAGE 7 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+TIME:
+approximately 00:00:01:13 \001 00:00:02:18
+Transition:
+WINNING SPEECH
+\001
+REAL BADMAN
+Use the SAME transition language as the previous slide.
+Do not introduce a new transition style.
+Maintain visual continuity.
+The REAL BADMAN artwork must enter using the newly uploaded REAL BADMAN poster.
+DO NOT use the previous Real Badman reference.
+DO NOT use the AUJLA SZN artwork.
+ONLY use the newly supplied REAL BADMAN poster.
+By:
+00:00:02:18
+the REAL BADMAN player/artwork must be fully established.
+==================================================
+7. REAL BADMAN \001 LYRIC PLAYER TRANSFORMATION
+==================================================
+TIME:
+00:00:02:18 \001 00:00:04:22
+This is the most important transition in the animation.
+At 00:00:02:18, the REAL BADMAN Apple Music artwork/player should begin transforming into the
+Apple Music lyrics/player state.
+Do NOT simply cut from the artwork to lyrics.
+The transition must be visually connected.
+Use a smooth shape/morph transformation.
+The existing Apple Music player geometry should transform into the lyric interface.
+Possible motion language:
+- artwork scales or shifts
+- player geometry stretches
+- masks expand
+- UI elements rearrange
+- typography emerges from existing geometry
+- artwork compresses or becomes a background element
+- lyric text reveals through a smooth mask
+- interface elements morph rather than disappear instantly
+Everything must feel like ONE continuous animation.
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+7/13
+
+=== PAGE 8 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+Avoid flashy transitions.
+Avoid glitch effects.
+Avoid random particles.
+Avoid excessive zooms.
+Avoid unnecessary distortion.
+The transformation should feel premium and intentional.
+==================================================
+8. LYRICS
+==================================================
+The lyric content for the final section is:
+"Baby They Know me, bade loki they owe me"
+Use EXACTLY this text.
+Do not change capitalization.
+Do not correct the spelling.
+Do not translate it.
+Do not add additional lyrics.
+Do not add quotation marks in the final animation.
+The lyric typography should follow the visual language of the reference video.
+The text should feel integrated into the Apple Music player rather than appearing as generic
+subtitles.
+==================================================
+9. LYRIC ANIMATION
+==================================================
+The lyric section runs:
+00:00:02:18 \001 00:00:04:22
+Use the visual rhythm and timing of the supplied reference video to guide the lyric reveal.
+Do NOT make the entire lyric appear instantly.
+Use a clean Apple Music-style lyric reveal.
+Possible behavior:
+- upcoming words/line appear subtly
+- active lyric becomes visually emphasized
+- text moves vertically if appropriate
+- opacity and position transitions remain smooth
+- typography remains highly readable
+==================================================
+10. APPLE MUSIC UI
+==================================================
+The Apple Music interface is a major part of the reference and must NOT be treated as
+optional.
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+8/13
+
+=== PAGE 9 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+Recreate the visual components visible in the reference, including where appropriate:
+- album artwork
+- song title
+- artist name
+- progress line
+- progress indicator
+- volume slider
+- playback controls
+- player geometry
+- interface spacing
+- typography
+- subtle shadows
+- UI hierarchy
+The volume slider and progress elements should animate smoothly when the reference shows
+movement.
+Do not add modern UI elements that aren't present in the reference.
+Do not make it look like a random Spotify interface.
+This should clearly read as the Apple Music-style visual language shown in the supplied
+reference.
+==================================================
+11. TYPOGRAPHY
+==================================================
+Typography should be clean, modern, bold and highly legible.
+Use a font that closely resembles Apple's modern system typography if the exact font is
+unavailable.
+Prioritize:
+- clean sans serif
+- strong weight hierarchy
+- precise spacing
+- proper kerning
+- smooth anti-aliasing
+- consistent alignment
+Do not use decorative fonts.
+Do not use random display fonts.
+Album titles and artist information should maintain the hierarchy shown in the reference.
+Lyrics should have a stronger visual presence.
+==================================================
+12. MOTION DESIGN
+==================================================
+Motion must be extremely smooth.
+Use professional motion-design principles:
+- Ease In/Out
+- Bezier interpolation
+- controlled acceleration
+- controlled deceleration
+- subtle overshoot only where appropriate
+- motion blur during fast movement
+- no abrupt stopping
+- no linear robotic movement
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+9/13
+
+=== PAGE 10 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+Avoid:
+- jitter
+- stuttering
+- frame skipping
+- excessive bounce
+- excessive elastic animation
+- random camera movement
+- aggressive zooms
+- glitch transitions
+- unnecessary particle effects
+- excessive chromatic aberration
+The motion should feel expensive and professionally designed.
+==================================================
+13. MOTION BLUR
+==================================================
+Use motion blur primarily during:
+- album artwork slides
+- UI movement
+- fast text movement
+- perspective transitions
+- morph transition
+Motion blur should enhance speed without destroying readability.
+Do not blur the artwork excessively.
+Do not use permanent blur.
+==================================================
+14. PERSPECTIVE / DEPTH
+==================================================
+The reference has a dimensional, slightly photographic interface feel.
+Reproduce that feeling with:
+- subtle perspective
+- controlled scale
+- layered UI
+- depth separation
+- slight rotation where appropriate
+- realistic spatial movement
+However, do NOT turn this into a 3D gimmick.
+The perspective should remain subtle and elegant.
+==================================================
+15. VISUAL HIERARCHY
+==================================================
+At every moment, the viewer should immediately understand:
+1. Which song is playing
+2. Which artwork is being shown
+3. Where the Apple Music player is
+4. What lyric is currently being displayed
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+10/13
+
+=== PAGE 11 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+Do not clutter the frame.
+Keep the composition controlled.
+The artwork should remain the visual anchor.
+==================================================
+16. TRANSITION QUALITY
+==================================================
+The transitions between:
+WAVY
+\001 WINNING SPEECH
+\001 REAL BADMAN
+\001 LYRICS
+must feel like one continuous piece.
+Do not make each section look like a separate animation.
+Maintain:
+- consistent perspective
+- consistent UI
+- consistent typography
+- consistent motion blur
+- consistent easing
+- consistent visual scale
+==================================================
+17. IMPORTANT ACCURACY RULES
+==================================================
+Do not hallucinate any artwork.
+Do not invent album names.
+Do not invent artist names.
+Do not alter Karan Aujla's name.
+Use these exact song names:
+WAVY
+WINNING SPEECH
+REAL BADMAN
+Use this exact artist name:
+Karan Aujla
+Use this exact lyric:
+Baby They Know me, bade loki they owe me
+The REAL BADMAN artwork MUST be the newly uploaded actual poster.
+==================================================
+18. FINAL QUALITY TARGET
+==================================================
+The final animation should feel like a professionally produced music visualizer / editorial
+music graphic.
+Think:
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+11/13
+
+=== PAGE 12 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+Apple Music UI
++
+high-end kinetic typography
++
+album artwork transitions
++
+cinematic editorial motion design
++
+precise visual timing
+NOT:
+generic slideshow
+generic lyric video
+basic Premiere transition
+basic CSS animation
+random AI motion
+glitch edit
+template animation
+Every frame should look intentional.
+==================================================
+19. IMPLEMENTATION PRIORITY
+==================================================
+If there is a conflict between creative interpretation and the reference video:
+PRIORITIZE THE REFERENCE VIDEO.
+If there is a conflict between generated artwork and supplied artwork:
+PRIORITIZE THE SUPPLIED ARTWORK.
+If there is a conflict between guessed timing and the reference:
+PRIORITIZE THE REFERENCE VIDEO.
+If there is a conflict between an earlier REAL BADMAN asset and the newly supplied REAL BADMAN
+ poster:
+PRIORITIZE THE NEWLY SUPPLIED REAL BADMAN POSTER.
+==================================================
+20. FINAL CHECKLIST
+==================================================
+Before considering the animation complete, verify:
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+12/13
+
+=== PAGE 13 ===
+
+COPY-PASTE MASTER PROMPT
+BY ARYAN UPPAL
+[ ] Resolution is exactly 1440 \002 1080
+[ ] Total duration is exactly 4.22 seconds
+[ ] WAVY is the opening song
+[ ] WAVY artwork is used first
+[ ] WINNING SPEECH artwork is used second
+[ ] REAL BADMAN artwork is used third
+[ ] The NEWLY SUPPLIED REAL BADMAN POSTER is used
+[ ] No previous Real Badman artwork is used
+[ ] Artist is written exactly as "Karan Aujla"
+[ ] Album/song names are spelled correctly
+[ ] Apple Music-style player is present
+[ ] Volume slider is present where appropriate
+[ ] Progress bar is present
+[ ] Player controls follow the reference
+[ ] WAVY \001 WINNING SPEECH uses a smooth slide
+[ ] WINNING SPEECH \001 REAL BADMAN uses the same smooth slide language
+[ ] REAL BADMAN \001 lyrics is a smooth morph/shape transformation
+[ ] Lyrics are exactly:
+"Baby They Know me, bade loki they owe me"
+[ ] No random text is generated
+[ ] No artwork is hallucinated
+[ ] No unnecessary effects are added
+[ ] Motion is smooth
+[ ] No jerky animation
+[ ] No harsh linear movement
+[ ] Motion blur is controlled
+[ ] Typography remains readable
+[ ] Final animation feels like one cohesive piece
+==================================================
+FINAL CREATIVE DIRECTION
+==================================================
+Study the supplied reference video carefully before implementing anything.
+Recreate its animation language as closely as possible.
+Do not make a generic interpretation.
+The goal is a highly accurate Apple Music-style motion graphic where the viewer feels that the
+ music player itself is physically moving and transforming.
+The album artwork, Apple Music UI, typography, lyric animation and transitions should all
+belong to the same visual system.
+Make the animation smooth enough that individual transitions feel almost fluid rather than
+like separate cuts.
+Use the supplied artwork exactly.
+Especially remember:
+THE NEWLY SUPPLIED REAL BADMAN POSTER IS THE CORRECT REAL BADMAN ARTWORK.
+Do not substitute any previous artwork.
+Deliver the final animation at 1440 \002 1080 with the complete 4.22-second timeline.
+CLAUDE ANIMATION WORKFLOW \002 BY ARYAN UPPAL
+13/13

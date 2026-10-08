@@ -2,6 +2,7 @@
 /**
  * Automated Visual Screenplay Generator using Google Gemini 2.5 Flash / 1.5 Pro.
  * Ingests word timestamps and phrases, then generates an art-directed motion screenplay.
+ * Supports styles: 'case-file', 'kinetic-dark', 'cyber-beat', 'minimal-mono', and 'apple-music'.
  */
 
 import fs from 'fs';
@@ -26,17 +27,31 @@ if (!fs.existsSync(phrasesPath)) {
 const phrases = JSON.parse(fs.readFileSync(phrasesPath, 'utf8'));
 console.log(`Loaded ${phrases.length} phrases for screenplay generation. Style: ${stylePreset}`);
 
-const systemPrompt = `You are a world-class senior motion graphics art director and creative developer specializing in Remotion, kinetic typography, and high-end vertical (9:16) music videos.
+let styleInstructions = '';
+if (stylePreset === 'apple-music') {
+	styleInstructions = `STYLE: Apple Music Dynamic Player & Synced Lyrics.
+- Sequence starts with the iconic Apple Music Now-Playing interface (3D floating album cover, frosted glass scrubber, volume controls).
+- Smooth horizontal Bezier slide transitions across album artworks.
+- Seamless shape morph: the player interface transforms smoothly into the Apple Music dynamic live lyrics view.
+- Active lyric glows in white against an ambient colorful blurred background.
+- animationType MUST choose from: ['apple-music-slide', 'apple-music-morph', 'kinetic-punch'].
+- backgroundTheme MUST be 'apple-music-blur'.`;
+} else {
+	styleInstructions = `STYLE: ${stylePreset}.
+- Objects from Scene A should motivate or transform into Scene B (continuous visual storytelling).
+- animationType MUST choose from: ['kinetic-punch', 'line-morph', 'cascade-reveal', 'shatter-reassemble', 'camera-push'].
+- backgroundTheme MUST choose from: ['paper', 'night', 'accent'].`;
+}
+
+const systemPrompt = `You are a world-class senior motion graphics art director and creative developer specializing in Remotion, kinetic typography, Apple Music UI motion graphics, and high-end vertical (9:16) music videos.
 Your job is to transform lyrical phrases and their timestamps into an art-directed visual screenplay.
 
 STRICT PRINCIPLE: The meaning of the lyric drives the visual. Do not simply cycle through generic slide/zoom/glitch effects.
+${styleInstructions}
 For each lyrical line:
 - Identify the hero word (most impactful word in the bar).
-- Devise a semantic visual metaphor (e.g. 'sharp' -> needles/spikes, 'time' -> clock hand / red line, 'alone' -> isolated word in vast negative space).
-- Objects from Scene A should motivate or transform into Scene B (continuous visual storytelling).
-- Assign an animation type from: ['kinetic-punch', 'line-morph', 'cascade-reveal', 'shatter-reassemble', 'camera-push'].
-- Assign an intensity (1 to 10).
-- Keep backgrounds and typography strictly aligned with the chosen style: ${stylePreset}.`;
+- Devise a semantic visual metaphor.
+- Assign an intensity (1 to 10).`;
 
 const userPrompt = `Generate a complete motion-design screenplay for these lyrical phrases:
 ${JSON.stringify(phrases, null, 2)}
@@ -51,8 +66,8 @@ Return a JSON array of scene objects. Each object MUST have this schema:
   "heroWord": string,
   "visualConcept": string,
   "semanticMetaphor": string,
-  "animationType": "kinetic-punch" | "line-morph" | "cascade-reveal" | "shatter-reassemble" | "camera-push",
-  "backgroundTheme": "paper" | "night" | "accent",
+  "animationType": string,
+  "backgroundTheme": string,
   "intensity": number
 }`;
 
@@ -119,10 +134,10 @@ runGemini().catch((err) => {
 		end: p.end,
 		lyrics: p.text,
 		heroWord: p.words?.[0]?.word || "Lyric",
-		visualConcept: "High-contrast kinetic typography with dynamic spring inertia",
-		semanticMetaphor: "Editorial layout with animated continuous line",
-		animationType: idx % 2 === 0 ? "kinetic-punch" : "line-morph",
-		backgroundTheme: idx % 3 === 0 ? "paper" : "night",
+		visualConcept: stylePreset === 'apple-music' ? "Apple Music 3D sliding album artwork with dynamic lyrics morph" : "High-contrast kinetic typography with dynamic spring inertia",
+		semanticMetaphor: stylePreset === 'apple-music' ? "Apple Music Now-Playing UI with frosted glass" : "Editorial layout with animated continuous line",
+		animationType: stylePreset === 'apple-music' ? (idx > 1 ? "apple-music-morph" : "apple-music-slide") : (idx % 2 === 0 ? "kinetic-punch" : "line-morph"),
+		backgroundTheme: stylePreset === 'apple-music' ? "apple-music-blur" : (idx % 3 === 0 ? "paper" : "night"),
 		intensity: 7
 	}));
 	fs.mkdirSync(path.dirname(outPath), { recursive: true });
