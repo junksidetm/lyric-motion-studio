@@ -79,11 +79,10 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_OUTPUT, \`audio_url=\${audioUrl}\nstyle=\${style}\n\`);
           "
 
-      - name: Step 1 - Fetch Audio via yt-dlp
+      - name: Step 1 - Fetch Audio
         run: |
           pip install yt-dlp
-          mkdir -p video/public
-          yt-dlp -x --audio-format mp3 -o "video/public/song.mp3" "${{ steps.parse_inputs.outputs.audio_url }}"
+          python scripts/fetch_audio.py "${{ steps.parse_inputs.outputs.audio_url }}" "video/public/song.mp3"
 
       - name: Step 2 - Forced Alignment (torchaudio MMS_FA)
         run: |

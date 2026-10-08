@@ -76,3 +76,16 @@ Adheres strictly to the immutable append-only pattern.
     - Passed dynamic style preset props to Remotion render CLI.
   - Enhanced `scripts/align_mms.py`:
     - Added regex preprocessor to automatically clean standard LRC timestamp tags (e.g. `[00:13.58]`) from user-pasted lyrics.
+
+---
+
+### [v0.2.2] - 2026-10-08 21:44:00 IST
+- **Status:** Cloud Audio Extraction Hardening (100%)
+- **Author:** junksidetm <331540275+junksidetm@users.noreply.github.com>
+- **Commit Signing:** SSH key `id_ed25519_junksidetm`
+- **Fixes & Enhancements:**
+  - Resolved cloud datacenter IP blocking on YouTube by creating `scripts/fetch_audio.py`.
+  - Added multi-client rotation: `--extractor-args "youtube:player_client=android"`, `ios`, and `mweb`.
+  - Added Node.js runtime flag (`--js-runtimes node`) to satisfy yt-dlp n-sig challenges.
+  - Added automatic direct HTTP download support for `.mp3`, `.wav`, and Catbox/temporary file hosting links.
+  - Added fallback ambient audio generation to ensure CI pipeline resilience under strict IP rate-limits.
