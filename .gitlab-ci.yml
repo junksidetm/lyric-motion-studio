@@ -1,0 +1,17 @@
+image: alpine:latest
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp -r index.html public/ 2>/dev/null || true
+    - cp -r *.js *.css public/ 2>/dev/null || true
+    - cp -r audio video out public/ 2>/dev/null || true
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
